@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import UploadForm from '../components/upload/UploadForm';
 import BulkUploadForm from '../components/upload/BulkUploadForm';
-import { FileCheck, PieChart, Award, FileText } from 'lucide-react';
+import { FileCheck, PieChart, Award, FileText, Download, ExternalLink } from 'lucide-react';
 
 const Home: React.FC = () => {
   const [uploadMode, setUploadMode] = useState<'single' | 'bulk'>('single');
@@ -13,6 +13,39 @@ const Home: React.FC = () => {
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Upload your RTU result PDF and get detailed insights into your academic performance
         </p>
+      </div>
+
+      {/* PDF Download Instructions */}
+      <div className="max-w-3xl mx-auto mb-12 bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-4">
+          <h2 className="text-xl font-semibold text-white">How to Get Your Result PDF</h2>
+        </div>
+        <div className="p-6">
+          <ol className="space-y-4">
+            <li className="flex items-start">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mr-3 mt-0.5">1</span>
+              <span>Visit <a href="https://rtu.sumsraj.com/Exam/Report/DownloadGradesheet.aspx" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 inline-flex items-center">
+                RTU Result Portal <ExternalLink className="h-4 w-4 ml-1" />
+              </a></span>
+            </li>
+            <li className="flex items-start">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mr-3 mt-0.5">2</span>
+              <span>Log in with your RTU credentials</span>
+            </li>
+            <li className="flex items-start">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mr-3 mt-0.5">3</span>
+              <span>Select your exam period from the dropdown menu</span>
+            </li>
+            <li className="flex items-start">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mr-3 mt-0.5">4</span>
+              <span>Click "Generate Gradesheet" to download your result PDF</span>
+            </li>
+            <li className="flex items-start">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mr-3 mt-0.5">5</span>
+              <span>Upload the downloaded PDF below for detailed analysis</span>
+            </li>
+          </ol>
+        </div>
       </div>
       
       <div className="max-w-2xl mx-auto mb-8">
@@ -53,9 +86,9 @@ const Home: React.FC = () => {
           description="Interactive charts to visualize your performance across subjects"
         />
         <FeatureCard 
-          icon={<Award className="h-10 w-10 text-primary-600" />}
-          title="Grade Analysis"
-          description="Understand your grade distribution and identify areas for improvement"
+          icon={<Download className="h-10 w-10 text-primary-600" />}
+          title="PDF Export"
+          description="Download your complete analysis report in PDF format"
         />
       </div>
       
